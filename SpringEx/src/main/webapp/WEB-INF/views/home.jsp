@@ -19,11 +19,9 @@
 </h1>
 Main page입니다.<br><br>
 <!-- <input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/login'"> -->
-<a href="/loginEx">로그인 하러 가기</a>
+<a href="/go">go</a>
 <a href="/exam?a=1234&b=456">ㄷ</a>
-<form action="/gogo" method="post">
-<input type="text" name="a"> <br>
-<input type="submit" value="전송">
+
 </form>
 
 </body>

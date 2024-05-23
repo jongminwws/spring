@@ -62,6 +62,12 @@ public class HomeController {
 		model.addAttribute("model_a", ev);
 		return "gogo"; //forward(web
 	}
+	@RequestMapping(value = "/go", method = RequestMethod.GET)
+	// 접근제어자  반환타입  메서드명(매개변수, 매개변수)
+	public String go(ExamVO ev, Model model) { // int는 정수만 저장 model은 모델 클래스 타입 참조형 타입
+		model.addAttribute("model_a", ev);
+		return "go"; //forward(web
+	}
 	@RequestMapping(value = "/quiz/test1", method = RequestMethod.GET)
 	// 접근제어자  반환타입  메서드명(매개변수, 매개변수)
 		public String test1(Locale locale, Model model) {
