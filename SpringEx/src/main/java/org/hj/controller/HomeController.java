@@ -22,7 +22,9 @@ public class HomeController {
 		public String drop() {
 			return "drop";
 		}
-		
-	
+	@RequestMapping(value = "/exam", method = RequestMethod.GET)
+	public String loginex(Locale locale, Model model) {
+		return "exam";
+	}
 	
 }
