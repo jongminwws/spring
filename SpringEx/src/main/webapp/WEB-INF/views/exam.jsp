@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-데이터 전송을 하기 위한 exam화면
+${model_a}<br>
+가자 <br>
+<%-- ${model_b} --%>
 </body>
 </html>
