@@ -24,9 +24,16 @@ public class BoardController {
 	
 	// 비즈니스 모델을 컨트롤러에 연결하기
 	@Autowired
-	BoardService bs;
-
+	BoardService bs; //boardService = new boardService
+	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
+	// 게시판 목록 리스트
+	public String list (Model model) {
+		model.addAttribute("list", bs.list());
+		return "board/list";
+	}
+
+	/*@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	// 게시판 목록 리스트
 	public String list (Model model, CriteriaVO cri) {
 		System.out.println(cri);
@@ -38,8 +45,8 @@ public class BoardController {
 		int total=bs.total(cri);
 		//model.addAttribute("paging", new PageVO(cri, 190));
 		model.addAttribute("paging", new PageVO(cri, total));
-		return "board/list";
-	}
+		return "board/list"; // bord풀더에 list.jps 를 실행하라
+	}*/
 	// 게시판 상세 페이지
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	// public String detail(int bno){

@@ -10,8 +10,9 @@ public interface BoardService {
 
 	// 글쓰기 설계          (BoardVO : 게시판정보+파일업로드정보)
 	public void write(BoardVO board);
-	// 글 목록 리스트 설계
-	public ArrayList<BoardVO> list(CriteriaVO cri);
+	// 글 목록 리스트 설계(추상메서드)
+	public ArrayList<BoardVO> list();
+	/*public ArrayList<BoardVO> list(CriteriaVO cri);*/
 	// 글 상세 내용 보기 설계
 	public BoardVO detail(BoardVO board);
 	// 글 수정 설계

@@ -15,9 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 	public class BoardServiceImpl implements BoardService {
 		
 		@Autowired
+		//BoardMapper bm = new BoardMapper();
 		BoardMapper bm;	// board 테이블 mapper
 		@Autowired
 		BoardAttachMapper bam;// attach테이블 mapper
+		
+		public ArrayList<BoardVO> list(){
+			return bm.list();
+		}
 		
 		// BoardService 에서 설계되어진 write 추상메서드를 구현
 		public void write(BoardVO board) {
@@ -36,9 +41,9 @@ import org.springframework.transaction.annotation.Transactional;
 		
 	
 		// BoardService에서 설계되어진 list추상메서드를 구현
-		public ArrayList<BoardVO> list(CriteriaVO cri) {
+		/*public ArrayList<BoardVO> list(CriteriaVO cri) {
 			return bm.list(cri);
-		}
+		}*/
 	
 		@Transactional
 		public BoardVO detail(BoardVO board) {
