@@ -32,30 +32,30 @@ public class MemberController {
 	
 	
 	
-	// 로그인 페이지
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login () {
-		System.out.println("aaaa");
-		return "member/login";
-	}
-	
-	// 로그인 서버
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost (HttpSession session, LoginVO member) {
-		
-/*		System.out.println("contorller="+member);
-		System.out.println(ls.login(member));*/
-		
-		session.setAttribute("login", ls.login(member));
-		
-		if (ls.login(member)==null) {
-			return "member/login";
-			} else {	
-				return "redirect:/list";	
-			}
-		
-		
-		}
+//	// 로그인 페이지
+//	@RequestMapping(value = "/loginq", method = RequestMethod.GET)
+//	public String login () {
+//		System.out.println("aaaa");
+//		return "member/login";
+//	}
+//	
+//	// 로그인 서버
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String loginPost (HttpSession session, LoginVO member) {
+//		
+///*		System.out.println("contorller="+member);
+//		System.out.println(ls.login(member));*/
+//		
+//		session.setAttribute("login", ls.login(member));
+//		
+//		if (ls.login(member)==null) {
+//			return "member/login";
+//			} else {	
+//				return "redirect:/list";	
+//			}
+//		
+//		
+//		}
 	
 	// 회원관리페이지
 	// 회원정보수정 및 삭제

@@ -15,14 +15,12 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!
 </h1>
 Main page입니다.<br><br>
-<!-- <input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/login'"> -->
+<input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/logins'">
+<a href="/logins">test</a>
 <a href="/go">go</a>
-<a href="/exam?a=1234&b=456">ㄷ</a>
-
-</form>
-
+<a href="/exam?a=12347777&b=456">ㄷ</a>
 </body>
 </html>

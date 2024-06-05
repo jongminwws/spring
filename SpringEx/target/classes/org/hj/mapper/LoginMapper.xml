@@ -9,7 +9,7 @@
   	
   	<select id="login" resultType="org.hj.model.LoginVO">
   		select id, password
-  		from member
+  		from login
   		where id=#{id} and password=#{password}
   	</select>
   
