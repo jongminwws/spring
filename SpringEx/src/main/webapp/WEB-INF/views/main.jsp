@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-signin-client_id"
 	content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-<title>로그인 성공</title>
+<title>로그인  성공</title>
 <link
 	href="https://db.onlinewebfonts.com/c/67680f2eb947c5cbd58b40961b4a61e9?family=Apple+SD+Gothic+Neo+Bold"
 	rel="stylesheet">
@@ -26,14 +25,9 @@
 				<div class="dropdown">
 					<button class="dropbtn">항공권예매</button>
 					<div class="dropdownMenu">
-						
-							<a href="#">항공권 예매</a>
-							<a href="#">단체 예매(10인 이상)</a>
-							<a href="#">항공권 선물하기</a>
-							<a href="#">이용 안내</a>
-							<a href="#">전자 항공권</a>
-							<a href="#">항공권 재발행</a>
-						
+						<a href="#">항공권 예매</a> <a href="#">단체 예매(10인 이상)</a> <a href="#">항공권
+							선물하기</a> <a href="#">이용 안내</a> <a href="#">전자 항공권</a> <a href="#">항공권
+							재발행</a>
 					</div>
 				</div>
 				<div class="dropdown">
@@ -69,13 +63,10 @@
 			</div>
 		</div>
 	</header>
-	<main> 
-	<c:if test="${not empty sessionScope.login}">
-	로그인 성공~ 
-	</c:if>
-	<a
-		href="${pageContext.request.contextPath}/logout">로그아웃</a> </main>
-		
+	<main>
+        로그인 성공~
+        <a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+    </main>
 	<footer>
 		<div class="footerInfos">
 			<div class="fooerInfo">
@@ -139,5 +130,61 @@
 		</div>
 	</footer>
 </body>
+<script type="text/javascript">
+    const loginButton = document.getElementById('login');
+    loginButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        const username = document.getElementById('name').value;
+        const password = document.getElementById('pass').value;
+
+        if (username === 'wkdwhd43' && password === '123456789a') {
+            alert('로그인 되었습니다.');
+        } else {
+            alert('아이디 또는 비밀번호가 올바르지 않습니다. 다시 확인해주세요.');
+        }
+    });
+    // 카카오톡 로그인
+    function saveToDos(token) { //item을 localStorage에 저장합니다. 
+        typeof (Storage) !== 'undefined' && sessionStorage.setItem('AccessKEY', JSON.stringify(token));
+    };
+
+    window.Kakao.init('본인 JAVASCRIPT API 키');
+
+    function kakaoLogin() {
+        window.Kakao.Auth.login({
+            scope: 'profile_nickname, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+            success: function (response) {
+                saveToDos(response.access_token)  // 로그인 성공하면 사용자 엑세스 토큰 sessionStorage에 저장
+                window.Kakao.API.request({ // 사용자 정보 가져오기 
+                    url: '/v2/user/me',
+                    success: (res) => {
+                        const kakao_account = res.kakao_account;
+                        alert('로그인 성공');
+                        window.location.href = '/ex/kakao_login.html'
+                    }
+                });
+            },
+            fail: function (error) {
+                console.log(error);
+            }
+        });
+    };
+
+    const login = document.querySelector('#kakaoLogin');
+    login.addEventListener('click', kakaoLogin);
+    //카카오톡 로그아웃
+    window.Kakao.init('본인 JAVASCRIPT API 키');
+    function kakaoLogout() {
+        if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            return;
+        }
+        Kakao.Auth.logout(function (response) {
+            alert(response + ' logout');
+            window.location.href = '/'
+        });
+    };
+
+</script>
 
 </html>

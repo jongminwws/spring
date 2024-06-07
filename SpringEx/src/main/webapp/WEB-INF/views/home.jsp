@@ -20,6 +20,7 @@
 Main page입니다.<br><br>
 <input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/logins'">
 <a href="/logins">test</a>
+<a href="/admin/login">관리자 계정</a>
 <a href="/go">go</a>
 <a href="/exam?a=12347777&b=456">ㄷ</a>
 </body>
