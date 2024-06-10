@@ -19,7 +19,7 @@ public class NaverController {
     
     @RequestMapping(value="/callback", method=RequestMethod.GET)
     public String callBack() {
-        return "callback"; // 네이버 로그인 콜백 처리 페이지로 이동
+        return "fi"; // 네이버 로그인 콜백 처리 페이지로 이동
     }
     
     @ResponseBody
@@ -52,7 +52,7 @@ public class NaverController {
         naver.setN_id(n_id);
         naver.setN_name(n_name);
         naver.setN_nickName(n_nickName);
-
+        
         // 세션에 NaverVo 객체 저장
         session.setAttribute("naverUser", naver);
 

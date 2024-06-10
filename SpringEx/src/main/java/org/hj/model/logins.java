@@ -3,10 +3,11 @@ package org.hj.model;
 public class logins {
     private String id;
     private String password;
-    private String name; // name 속성 추가
-    private String email; // email 속성 추가
+    private String name;
+    private String email;
+    private String userName;
     
- // Getters and Setters
+    // Getter와 Setter 메서드들
     public String getId() {
         return id;
     }
@@ -23,30 +24,32 @@ public class logins {
         this.password = password;
     }
     
-    // getter와 setter
-    public String getName() { // name 속성의 getter 추가
+    public String getName() {
         return name;
     }
 
-    public void setName(String name) { // name 속성의 setter 추가
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmail() { // email 속성의 getter 추가
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) { // email 속성의 setter 추가
+    public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getUsername() {
+        return userName;
+    }
+
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
 
     @Override
     public String toString() {
         return "logins [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + "]";
     }
-
-	public Object getRole() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

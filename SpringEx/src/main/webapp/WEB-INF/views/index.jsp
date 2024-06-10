@@ -7,16 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-signin-client_id"
 	content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-	<!-- 구글 로그인 클라이언트 ID -->
 <title>Global Medical University Hospital</title>
 <link rel="stylesheet" href="resources/css/index.css" type="text/css">
- <!-- CSS 링크 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
- <!-- 카카오 로그인 SDK -->
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
 	charset="utf-8"></script>
-	<!-- 네이버 아이디로 로그인 SDK -->
 </head>
 <body>
     <header>
@@ -39,8 +35,60 @@
                 <a href="#">찾아오시는길</a>
             </div>
             <div class="login">
-                <a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+                <a onclick="loginForm_btn()">로그인</a>
             </div>
+        </div>
+        <div class="login_form">
+            <div class="login_member">
+                <div style="padding: 50px 0;">
+                    <h1>로그인</h1>
+                    <p>글로벌메디컬대학병원 홈페이지 회원 서비스는</p>
+                    <p>로그인 후 이용 가능합니다.</p>
+                </div>
+                <form id="loginForm"action="${pageContext.request.contextPath}/login" method="post">
+                    <div class="login_container">
+                        <input type="text" id="id" name="id" placeholder="아이디를 입력하세요">
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+                        <input class="login_btn" type="submit" id="loginButton" value="로그인">
+                    </div>
+                </form>
+                <div class="serch_user_info">
+                    <a href="membership.html">회원가입</a>
+                    <span> | </span>
+                    <a href="search_id" class="btn btn-facebook btn-user btn-block">아이디찾기</a>
+                    <span> | </span>
+                    <a href="#">비밀번호찾기</a>
+                </div>
+                <div class="sns_login">
+    <a href="#" id="kakaoLogin">
+        <img src="/resources/img/kakao_logo.png" alt="카카오 로고">
+        <div>
+            <strong>카카오톡</strong>
+            <span>카카오 로그인</span>
+        </div>
+    </a>
+    <a href="#" id="naverIdLogin">
+        <!-- 여기에 네이버 로그인 이미지 추가 -->
+    </a>
+</div>
+            </div>
+            <div class="login_staff_only">
+                <div style="padding: 50px 0;">
+                    <h1>직원 전용 로그인</h1>
+                    <p>글로벌메디컬대학병원 의료진 전용 로그인입니다.</p>
+                    <p>관계자가 아닐경우 일반 로그인을 이용해주세요.</p>
+                </div>
+               <form id="loginForm"action="${pageContext.request.contextPath}/login" method="post">
+                    <div class="login_container">
+                        <input type="text" id="id" name="id" placeholder="아이디를 입력하세요">
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+                        <input class="login_btn" type="submit" id="loginButton" value="로그인">
+                    </div>
+                    <p style="text-decoration: underline; color: #ff0000;">*부정 사용할 경우 관련 법에 따라 처벌받을 수 있습니다.</p>
+                    <input class="locker" type="checkbox"> 확인했습니다.
+                </form>
+            </div>
+            <button class="exit_btn" onclick="loginForm_btn()">닫기</button>
         </div>
     </header>
     <main>

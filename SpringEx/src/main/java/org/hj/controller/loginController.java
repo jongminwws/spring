@@ -2,9 +2,8 @@ package org.hj.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.hj.mapper.LoginsMapper;
-import org.hj.model.logins;
 import org.hj.service.LoginsService;
+import org.hj.model.logins;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,35 +28,29 @@ public class loginController {
 
         if (loginResult == null) {
             model.addAttribute("errorMessage", "아이디 또는 비밀번호가 틀렸습니다.");
-            return "logins";
+            return "index";
         } else {
             session.setAttribute("login", loginResult);
-            model.addAttribute("login", loginResult);
             return "redirect:/fi";
         }
     }
 
-    /*@RequestMapping(value = "/fi", method = RequestMethod.GET)
+    @RequestMapping(value = "/fi", method = RequestMethod.GET)
     public String userInfo(HttpSession session, Model model) {
         logins loginResult = (logins) session.getAttribute("login");
 
         if (loginResult != null) {
-            model.addAttribute("login", loginResult);
+            model.addAttribute("loginUser", loginResult.getUsername()); // 사용자 이름을 모델에 추가
             return "fi";
         } else {
             return "redirect:/logins";
         }
-    }*/
-    //fi 컨트롤러
-    @RequestMapping(value = "/fi", method = RequestMethod.GET)
-	public String userInfo(HttpSession session, Model model) {
-	    return "fi";
-	}
-    //로그아웃
+    }
+    
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.removeAttribute("login"); // 세션에서 로그인 정보 제거
         session.invalidate(); // 세션 무효화
-        return "redirect:/logins";
+        return "redirect:/index";
     }
 }

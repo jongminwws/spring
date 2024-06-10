@@ -9,8 +9,7 @@ public class NaverVo {
     private String n_name;
     private String n_nickName;
 
-    public NaverVo() {
-    }
+    // Getters and Setters
 
     public String getN_age() {
         return n_age;

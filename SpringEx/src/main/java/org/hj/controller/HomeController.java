@@ -24,6 +24,11 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "home";
 	}
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	// 접근제어자  반환타입  메서드명(매개변수, 매개변수)
+		public String index(Locale locale, Model model) {
+			return "index";
+		}
 	
 	@RequestMapping(value = "/drop", method = RequestMethod.GET)
 	// 접근제어자  반환타입  메서드명(매개변수, 매개변수)
