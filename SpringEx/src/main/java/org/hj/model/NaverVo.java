@@ -8,6 +8,7 @@ public class NaverVo {
     private String n_id;
     private String n_name;
     private String n_nickName;
+    private String accessToken; // Add accessToken field
 
     // Getters and Setters
 
@@ -65,5 +66,19 @@ public class NaverVo {
 
     public void setN_nickName(String n_nickName) {
         this.n_nickName = n_nickName;
+    }
+    // Add getter and setter for accessToken
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+    @Override
+    public String toString() {
+        return "NaverVo [n_age=" + n_age + ", n_birthday=" + n_birthday + ", n_email=" + n_email + ", n_gender="
+                + n_gender + ", n_id=" + n_id + ", n_name=" + n_name + ", n_nickName=" + n_nickName + ", accessToken="
+                + accessToken + "]";
     }
 }

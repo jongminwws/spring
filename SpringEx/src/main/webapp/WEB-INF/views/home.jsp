@@ -18,11 +18,11 @@
 	Hello world!
 </h1>
 Main page입니다.<br><br>
-<input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/logins'">
+<input type=button value="로그인 하러가기" onclick="location.href='http://localhost:8080/index'">
 <a href="/logins">test</a>
 <a href="/admin/login">관리자 계정</a>
 <a href="/go">go</a>
 <a href="/exam?a=12347777&b=456">ㄷ</a>
-
+<a href="/board/list">게시판</a>
 </body>
 </html>

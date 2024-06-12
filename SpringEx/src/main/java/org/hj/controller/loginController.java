@@ -1,56 +1,63 @@
 package org.hj.controller;
 
-import javax.servlet.http.HttpSession;
-
-import org.hj.service.LoginsService;
 import org.hj.model.logins;
+import org.hj.service.LoginsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("login")
 public class loginController {
 
     @Autowired
-    private LoginsService loginsService;  // LoginsMapper 대신 LoginsService를 사용합니다
+    LoginsService loginsService;
 
-    @RequestMapping(value = "/logins", method = RequestMethod.GET)
-    public String loginForm() {
-        return "logins";
-    }
-
+    // 로그인 처리
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(HttpSession session, @ModelAttribute("member") logins member, Model model) {
+    public String login(@RequestParam("id") String id,
+                        @RequestParam("password") String password,
+                        HttpSession session,
+                        Model model) {
+
+        logins member = new logins();
+        member.setId(id);
+        member.setPassword(password);
+
         logins loginResult = loginsService.logins(member);
 
-        if (loginResult == null) {
-            model.addAttribute("errorMessage", "아이디 또는 비밀번호가 틀렸습니다.");
-            return "index";
+        if (loginResult != null) {
+            model.addAttribute("login", loginResult); // 세션에 로그인 정보 추가
+            return "redirect:/fi"; // 로그인 성공 시 /fi 페이지로 리다이렉트
         } else {
-            session.setAttribute("login", loginResult);
-            return "redirect:/fi";
+            return "redirect:/logins"; // 로그인 실패 시 다시 로그인 페이지로 리다이렉트
         }
     }
 
+    // 사용자 정보 페이지
     @RequestMapping(value = "/fi", method = RequestMethod.GET)
     public String userInfo(HttpSession session, Model model) {
         logins loginResult = (logins) session.getAttribute("login");
 
         if (loginResult != null) {
-            model.addAttribute("loginUser", loginResult.getUsername()); // 사용자 이름을 모델에 추가
-            return "fi";
+            model.addAttribute("loginUser", loginResult.getName()); // 사용자 이름을 모델에 추가
+            return "fi"; // 로그인된 사용자의 정보를 표시할 페이지로 이동
         } else {
-            return "redirect:/logins";
+            return "redirect:/index"; // 로그인되지 않은 경우 다시 로그인 페이지로 리다이렉트
         }
     }
-    
+
+    // 로그아웃 처리
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.removeAttribute("login"); // 세션에서 로그인 정보 제거
         session.invalidate(); // 세션 무효화
-        return "redirect:/index";
+        return "redirect:/index"; // 로그아웃 후에는 index 페이지로 리다이렉트
     }
 }

@@ -61,7 +61,7 @@ var naverLogin = new naver.LoginWithNaverId({
     clientId: "RhYUDtcrGAZKn45AMi7b", // 본인의 Client ID로 수정
     callbackUrl: "http://localhost:8080/callback", // 콜백 URL을 올바르게 수정
     isPopup: false,
-    loginButton: {color: "white", type: 3, height: 60} // 네이버 로그인버튼 디자인 설정
+    loginButton: {color: "black", type: 4, height: 60} // 네이버 로그인버튼 디자인 설정
 });
 
 naverLogin.init();
@@ -153,36 +153,4 @@ naverLogin.init();
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
-
-
-    /* function loginWithNaver() {
-        var clientId = "RhYUDtcrGAZKn45AMi7b"; // 네이버 애플리케이션 클라이언트 아이디
-        var redirectURI = encodeURIComponent("http://localhost:8080/jspexample/callback.jsp?callback_url=%EC%84%9C%EB%B2%84%EC%A3%BC%EC%86%8C"); // 콜백 URL
-        var state = Math.random().toString(36).substring(7); // 랜덤한 state 값 생성
-        sessionStorage.setItem("state", state); // state 값 세션에 저장
-
-        // 네이버 OAuth 인증 URL
-        var authURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
-                    + "&client_id=" + clientId
-                    + "&redirect_uri=" + redirectURI
-                    + "&state=" + state;
-
-        // 사용자를 네이버 로그인 페이지로 리다이렉트
-        window.location.href = authURL;
-    } */
-    /* function loginWithNaver() {
-        var clientId = "RhYUDtcrGAZKn45AMi7b"; // 네이버 애플리케이션 클라이언트 아이디
-        var redirectURI = encodeURIComponent("http://localhost:8080/fi"); // 콜백 URL
-        var state = Math.random().toString(36).substring(7); // 랜덤한 state 값 생성
-        sessionStorage.setItem("state", state); // state 값 세션에 저장
-
-        // 네이버 OAuth 인증 URL
-        var authURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
-                    + "&client_id=" + clientId
-                    + "&redirect_uri=" + redirectURI
-                    + "&state=" + state;
-
-        // 사용자를 네이버 로그인 페이지로 리다이렉트
-        window.location.href = authURL;
-    } */
     //여기까지 로그인 js

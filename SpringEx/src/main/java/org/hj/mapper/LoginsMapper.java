@@ -1,11 +1,11 @@
+// LoginsMapper.java
 package org.hj.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.hj.model.logins;
 
 @Mapper
 public interface LoginsMapper {
-    logins logins(logins member);
-
-	org.hj.model.logins logins(String id, String password);
+    logins logins(@Param("id") String id, @Param("password") String password);
 }
