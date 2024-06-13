@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,12 +20,11 @@ public class loginController {
     @Autowired
     LoginsService loginsService;
 
-    // 로그인 처리
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("id") String id,
                         @RequestParam("password") String password,
                         HttpSession session,
-                        Model model) {
+                        RedirectAttributes redirectAttributes) {
 
         logins member = new logins();
         member.setId(id);
@@ -33,10 +33,11 @@ public class loginController {
         logins loginResult = loginsService.logins(member);
 
         if (loginResult != null) {
-            model.addAttribute("login", loginResult); // 세션에 로그인 정보 추가
+            session.setAttribute("login", loginResult); // 세션에 로그인 정보 추가
             return "redirect:/fi"; // 로그인 성공 시 /fi 페이지로 리다이렉트
         } else {
-            return "redirect:/logins"; // 로그인 실패 시 다시 로그인 페이지로 리다이렉트
+            redirectAttributes.addFlashAttribute("error", "아이디 및 비밀번호가 틀렸습니다."); // 실패 메시지 추가
+            return "redirect:/index"; // 로그인 실패 시 다시 로그인 페이지로 리다이렉트
         }
     }
 

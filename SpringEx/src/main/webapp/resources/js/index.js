@@ -56,7 +56,7 @@ function updateFormLock() {
 checkbox.addEventListener('change', updateFormLock);
 
 updateFormLock();
-//로그인 js
+/*//로그인 js
 var naverLogin = new naver.LoginWithNaverId({
     clientId: "RhYUDtcrGAZKn45AMi7b", // 본인의 Client ID로 수정
     callbackUrl: "http://localhost:8080/callback", // 콜백 URL을 올바르게 수정
@@ -102,7 +102,7 @@ window.addEventListener('load', function () {
             }
         });
     }
-});
+});*/
 
 naverLogin.init();
     // 카카오톡 로그인
