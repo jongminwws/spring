@@ -13,8 +13,9 @@
 <body>
 
 <h1>게시판 목록입니다</h1>
-<input type="button" value="글쓰기" onclick="location.href='http://localhost:8080/write'">
-<form id="searchForm" action="/board/list" method="get">
+<a href="/board/write">글쓰기</a>
+<form id="searchForm" action="/write" method="get">
+
 
 	<select name="type">
 		<option value="T">제목</option>
@@ -29,15 +30,13 @@
 
 <table border="1">
 	<tr>
-		<td>게시판번호</td> <td>제목</td> <td>작성일자</td> <td>조회수</td>
+		 <td>제목</td> <td>조회수</td>
 	</tr>
 	
 	<!-- for문 시작 -->
 	<c:forEach items="${list}" var="boardlist">
 		<tr>
-			<td>${boardlist.bno}</td>
 			<td><a href="/board/detail?bno=${boardlist.bno}">${boardlist.title}</a></td>
-			<td>${boardlist.regdate}</td>
 			<td>${boardlist.cnt}</td>
 		</tr>
 	</c:forEach>
