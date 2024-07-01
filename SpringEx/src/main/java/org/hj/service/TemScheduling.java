@@ -11,7 +11,7 @@ public class TemScheduling {
     private PatientService TemS;
 
     // 10초마다 실행
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 60000)
     public void deleteOldTemperatures() {
     	TemS.deleteOld();
         System.out.println("Old temperatures deleted at ");
