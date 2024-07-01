@@ -1,31 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/uploadAjax.js"></script>
+    <meta charset="UTF-8">
+    <title>글쓰기 폼</title>
 </head>
 <body>
-
-<h1>게시판 글쓰기 화면</h1>
-
-<form id="form" action="/write" method="post">
-제목 <input type="text" name="title"><br>
-내용 <input type="text" name="content"><br>
-
-<input type="file" name="uploadFile" multiple >
-<input type="button" id="uploadBtn" value="글쓰기">
-
-</form>
-<div id="uploadResult">
-	<ul>
-		
-	</ul>	
-</div>	
-
-
+    <h1>게시판 글쓰기 화면</h1>
+    <form id="form" action="/write" method="post">
+        제목: <input type="text" name="title"><br>
+        내용: <textarea name="content"></textarea><br>
+        <input type="submit" value="글쓰기">
+    </form>
 </body>
 </html>

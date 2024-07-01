@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 여기에 mapper 및 mappers 등의 설정들을 넣어야 합니다. -->
+    <mappers>
+        <mapper resource="classpath:org/hj/mapper/MemberMapper.xml"/>
+        <mapper class="org.hj.mapper.LoginMapper"/>
+        <!-- 추가적인 매퍼들 -->
+    </mappers>
+</configuration>
