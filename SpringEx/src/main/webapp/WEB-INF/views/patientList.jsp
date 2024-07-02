@@ -34,7 +34,7 @@
                     <td>${patient.doctor}</td>
                     <td>${patient.notes}</td>
                     <td>${patient.record_Time}</td>
-                    <td>${patient.temperature}</td>
+                 	<td>${patient.temperature}</td>
                 </tr>
             </c:forEach>
         </tbody>
