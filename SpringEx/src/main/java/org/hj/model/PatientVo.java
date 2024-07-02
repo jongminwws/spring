@@ -1,5 +1,6 @@
 package org.hj.model;
 
+
 public class PatientVo {
     private String patient_Id;
     private String name;
@@ -9,7 +10,7 @@ public class PatientVo {
     private String doctor;
     private String notes;
     private String record_Time;
-    private String temperature;
+    private String temperature; // 이제는 temper 테이블의 온도 값
     
 	public String getPatient_Id() {
 		return patient_Id;
