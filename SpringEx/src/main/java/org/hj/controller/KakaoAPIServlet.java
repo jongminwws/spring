@@ -15,7 +15,6 @@ public class KakaoAPIServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
-        String apiKey = "37af3123a0ae1b3e3e25944de842a507";  // 여기에 실제 API 키를 입력하세요
         String apiUrl = "https://apis-navi.kakaomobility.com/v1/directions?origin=127.11015314141542,37.39472714688412&destination=127.10824367964793,37.401937080111644&waypoints=&priority=RECOMMEND&car_fuel=GASOLINE&car_hipass=false&alternatives=false&road_details=false";
 
         URL url = new URL(apiUrl);
