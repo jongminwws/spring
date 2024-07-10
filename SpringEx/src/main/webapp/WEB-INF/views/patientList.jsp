@@ -7,9 +7,34 @@
     <meta charset="UTF-8">
     <title>주변 병원 찾기</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
         #map {
-            width: 100%;
+            width: 1000px;
             height: 500px;
+            margin-bottom: 20px;
+        }
+        #places {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #places li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        #places li:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
         }
         #requestBloodButton {
             margin-top: 10px;
@@ -25,7 +50,9 @@
 </head>
 <body>
     <h1>주변 병원 찾기</h1>
-    <button onclick="getLocation()">주변 병원 찾기</button>
+    <button onclick="getLocation()" style="display: block; margin: 20px auto; padding: 15px 30px; font-size: 18px; font-weight: bold; text-transform: uppercase; color: #fff; background-color: #4CAF50; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+    주변 병원 찾기
+</button>
     <div id="map"></div>
     <ul id="places"></ul>
     <button id="requestBloodButton">혈액 요청하기</button>
@@ -47,7 +74,7 @@
                         const mapContainer = document.getElementById('map');
                         const mapOption = {
                             center: new kakao.maps.LatLng(latitude, longitude),
-                            level: 4
+                            level: 3
                         };
                         map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -76,10 +103,8 @@
                                     // 마커 클릭 이벤트 처리
                                     kakao.maps.event.addListener(placeMarker, 'click', function() {
                                         // 온도 정보 표시
-                                        let temperatureInfo = "";
-                                        <c:forEach var="patient" items="${patients}">
-                                            temperatureInfo += `이 병원에서 보관하고 있는 혈액 온도는 ${patient.temperature}도<br>`;
-                                        </c:forEach>
+                                         let randomBloodCount = Math.floor(Math.random() * 40); // 0에서 40 사이의 숫자 생성
+                                        let temperatureInfo = "보유 혈액 갯수 " + randomBloodCount + " 개 <br>";
                                         infowindow.setContent('<div style="padding:10px;min-width:200px;">' + place.place_name + '<br>' + temperatureInfo + '</div>');
                                         infowindow.open(map, placeMarker);
 
