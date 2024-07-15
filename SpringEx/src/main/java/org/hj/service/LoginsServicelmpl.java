@@ -4,12 +4,12 @@ import org.hj.mapper.LoginsMapper;
 import org.hj.model.logins;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
- 
+
 @Service
 public class LoginsServicelmpl implements LoginsService {
 
     @Autowired
-    LoginsMapper loginsMapper;
+    private LoginsMapper loginsMapper;
 
     @Override
     public logins logins(logins member) {

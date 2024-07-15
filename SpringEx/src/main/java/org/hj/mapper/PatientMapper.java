@@ -18,7 +18,7 @@ public interface PatientMapper {
     List<String> getAllTemperatures();
     // temper 테이블에서 최신 온도 데이터를 조회하는 메서드
     @Select("SELECT temperature FROM temper ORDER BY created_at DESC LIMIT 1")
-    List<String> getLatestTemperatures();
+    List<String> getLatestTemperatures(); // sss
     
     @Delete("DELETE FROM temper WHERE created_at < DATE_SUB(NOW(), INTERVAL 60 SECOND)")
     void  deleteOld();

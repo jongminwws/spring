@@ -1,4 +1,4 @@
-<%@ page import="java.net.URLEncoder" %>
+<%-- <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.net.URL" %>
 <%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="java.io.BufferedReader" %>
@@ -243,4 +243,4 @@ try {
 	src="resources/js/index.js"></script>
 </html>
 </body>
-</html>
+</html> --%>

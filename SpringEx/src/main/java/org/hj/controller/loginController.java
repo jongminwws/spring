@@ -20,6 +20,12 @@ public class loginController {
     @Autowired
     LoginsService loginsService;
 
+    // 로그인 페이지 매핑
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String loginPage() {
+        return "shop_login"; // 로그인 페이지로 이동
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("id") String id,
                         @RequestParam("password") String password,
@@ -61,13 +67,14 @@ public class loginController {
         session.invalidate(); // 세션 무효화
         return "redirect:/home"; // 로그아웃 후에는 index 페이지로 리다이렉트
     }
-    //네이버 컨트롤러
+
+    // 네이버 컨트롤러
     @RequestMapping("/naver.do")
     public String naver() {
         return "naver_login"; // 네이버 로그인 화면으로 이동
     }
-    
-    @RequestMapping(value="/callback", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/callback", method = RequestMethod.GET)
     public String callBack() {
         return "fi"; // 네이버 로그인 콜백 처리 페이지로 이동
     }
