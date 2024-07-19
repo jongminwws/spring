@@ -25,6 +25,7 @@ public class loginController {
     public String loginPage() {
         return "shop_login"; // 로그인 페이지로 이동
     }
+    //sss
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("id") String id,
